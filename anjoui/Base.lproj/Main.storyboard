@@ -147,11 +147,11 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main-screen.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-xt-4Ch">
-                                <rect key="frame" x="0.0" y="0.0" width="347" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="623" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Healthy homemade food available to everyone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJB-LW-KyX">
                                 <rect key="frame" x="69" y="275" width="235" height="115"/>
@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85R-Sh-XJ5">
-                                <rect key="frame" x="0.0" y="435" width="160" height="45"/>
+                                <rect key="frame" x="0.0" y="555" width="300" height="45"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.50980392159999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zVN-O6-Yyd"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukd-mS-S3s">
-                                <rect key="frame" x="299" y="435" width="160" height="45"/>
+                                <rect key="frame" x="299" y="555" width="300" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="CcN-wS-0V3"/>
@@ -665,7 +665,6 @@
                                         </state>
                                         <connections>
                                             <action selector="cookSignup:" destination="Ksb-7d-zSQ" eventType="touchUpInside" id="fjU-OW-Lal"/>
-                                            <segue destination="2WL-fA-82r" kind="show" id="3rL-rM-IWA"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="By signing up, you are agreeing to anjoui's Privacy Policy and Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxW-XB-rrX">
@@ -768,11 +767,12 @@
                         <outlet property="txtLastName" destination="uns-Am-QaJ" id="uD1-69-x2A"/>
                         <outlet property="txtPassword" destination="UX9-Dp-zRq" id="oy4-nc-rgK"/>
                         <outlet property="txtPhoneNumber" destination="32H-MP-3fg" id="zw3-wD-9g7"/>
+                        <segue destination="2WL-fA-82r" kind="show" identifier="cook_signup" id="YtY-ek-0hJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irl-Q7-ta4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1952" y="346"/>
+            <point key="canvasLocation" x="-1962" y="346"/>
         </scene>
         <!--Upload Dish - Entree Details-->
         <scene sceneID="XO5-03-9fy">
@@ -797,7 +797,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="back" id="F5h-hQ-Yf6">
                                             <color key="tintColor" red="0.98823529409999999" green="0.50980392159999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <segue destination="Ksb-7d-zSQ" kind="show" id="AVK-yv-1QN"/>
+                                                <segue destination="2WL-fA-82r" kind="show" id="Waw-ND-RlV"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1258,7 +1258,6 @@
                                         </state>
                                         <connections>
                                             <action selector="dinerSignup:" destination="j0v-7A-AUV" eventType="touchUpInside" id="SaV-cP-Ou9"/>
-                                            <segue destination="2WL-fA-82r" kind="show" id="Ue9-IF-vYV"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="By signing up, you are agreeing to anjoui's Privacy Policy and Terms of Service" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PF-Yh-f2j">
@@ -1353,11 +1352,12 @@
                         <outlet property="txtLastName" destination="UfL-FA-ebc" id="8Ys-j8-aGn"/>
                         <outlet property="txtPassword" destination="140-Dd-u9e" id="SMf-TC-QlH"/>
                         <outlet property="txtPhoneNumber" destination="Zd4-2m-RyA" id="Me6-C4-WS5"/>
+                        <segue destination="2WL-fA-82r" kind="show" identifier="diner_signup" id="qsT-P8-T1w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgy-33-mSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1942" y="1169"/>
+            <point key="canvasLocation" x="-1969" y="1182"/>
         </scene>
         <!--Listing Page-->
         <scene sceneID="8Dq-lG-i9r">
@@ -1378,8 +1378,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="anjoui" id="pRK-EE-rcE">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="E7K-LA-9BU">
+                                        <barButtonItem key="leftBarButtonItem" title="log out" id="E7K-LA-9BU">
                                             <color key="tintColor" red="0.98823529409999999" green="0.50980392159999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="iVJ-OF-BPj"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="三" id="Zbw-f6-hes">
                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1504,7 +1507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0v-g4-s3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1373" y="1589"/>
+            <point key="canvasLocation" x="-1373" y="1169"/>
         </scene>
         <!--Dish Detail-->
         <scene sceneID="Gsv-d6-210">
@@ -1529,6 +1532,9 @@
                                     <navigationItem title="anjoui" id="Y2q-xM-GTf">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="7ma-bw-tmy">
                                             <color key="tintColor" red="0.98823529409999999" green="0.50980392159999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="2WL-fA-82r" kind="show" id="8Fo-JM-mYE"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="三" id="Rhs-1Y-WNx">
                                             <color key="tintColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2404,13 +2410,12 @@ Pick-up at: 12:30 pm  Cook contact info Address: 639 Library Pl, Evanston�
         <image name="pancakes.jpg" width="960" height="684"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Q2v-k0-Hcu"/>
-        <segue reference="V3u-4M-UcM"/>
-        <segue reference="Vre-pA-QR3"/>
-        <segue reference="rc4-Em-wAB"/>
+        <segue reference="iVJ-OF-BPj"/>
+        <segue reference="8Fo-JM-mYE"/>
         <segue reference="CxP-a6-mmd"/>
+        <segue reference="ziK-D7-Sg9"/>
         <segue reference="JqH-ul-hIL"/>
-        <segue reference="gQv-n8-mX0"/>
-        <segue reference="jlR-ey-wCb"/>
+        <segue reference="V3u-4M-UcM"/>
+        <segue reference="KCv-2l-ij6"/>
     </inferredMetricsTieBreakers>
 </document>
