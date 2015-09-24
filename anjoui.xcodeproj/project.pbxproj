@@ -705,7 +705,7 @@
 				INFOPLIST_FILE = anjoui/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anjouifoods.anjoui;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anjouifoods.anjoui-static";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "anjoui/anjoui-Bridging-Header.h";
@@ -727,7 +727,7 @@
 				INFOPLIST_FILE = anjoui/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anjouifoods.anjoui;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anjouifoods.anjoui-static";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "anjoui/anjoui-Bridging-Header.h";
