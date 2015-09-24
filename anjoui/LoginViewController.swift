@@ -20,14 +20,14 @@ class LoginViewController: UIViewController {
         let hashed_user_pass:String = ("Add some salt" + (txtPassword.text! as String) + "maybe some pepper").MD5()
         
         if (user_email == "" || hashed_user_pass == "") {
-            var alertView:UIAlertView = UIAlertView()
+            let alertView:UIAlertView = UIAlertView()
             alertView.title = "Please enter Email and Password"
             alertView.message = "Email and Password fields cannot be blank."
             alertView.delegate = self
             alertView.addButtonWithTitle("OK")
             alertView.show()
         } else if (!user_email.isValidEmail()){
-            var alertView:UIAlertView = UIAlertView()
+            let alertView:UIAlertView = UIAlertView()
             alertView.title = "Invalid email"
             alertView.message = "Email must be in the format: example@anjoui.com"
             alertView.delegate = self
@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                         print("User is valid")
                         self.performSegueWithIdentifier("login_user", sender: nil)
                     } else {
-                        var alertView:UIAlertView = UIAlertView()
+                        let alertView:UIAlertView = UIAlertView()
                         alertView.title = "Sign in Failed"
                         alertView.message = "Incorrect Password"
                         alertView.delegate = self
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
                         alertView.show()
                     }
                 } else {
-                    var alertView:UIAlertView = UIAlertView()
+                    let alertView:UIAlertView = UIAlertView()
                     alertView.title = "Sign in Failed"
                     alertView.message = "Email does not exist"
                     alertView.delegate = self
