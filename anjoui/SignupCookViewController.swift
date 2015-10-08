@@ -9,8 +9,6 @@ import UIKit
 
 class SignupCookViewController: UIViewController {
     
-    var client = MSClient?()
-    
     @IBOutlet weak var txtFirstName: UITextField!
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -22,11 +20,9 @@ class SignupCookViewController: UIViewController {
         let user_first_name:String = (txtFirstName.text! as String).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let user_last_name:String = (txtLastName.text! as String).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let user_email:String = (txtEmail.text! as String).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        let hashed_user_pass:String = ("Add some salt" + (txtPassword.text! as String) + "maybe some pepper").MD5()
-        let user_phone_number:String = txtPhoneNumber.text!
-        let user_address:String = txtAddress.text! as String
+        let user_password:String = txtPassword.text! as String
         
-        if (user_first_name == "" || user_last_name == "" || user_email == "" || hashed_user_pass == "") {
+        if (user_first_name == "" || user_last_name == "" || user_email == "" || user_password == "") {
             let alertView:UIAlertView = UIAlertView()
             alertView.title = "Required fields blank"
             alertView.message = "Please fill First Name, Last Name, Email, and Password fields"
@@ -40,65 +36,62 @@ class SignupCookViewController: UIViewController {
             alertView.delegate = self
             alertView.addButtonWithTitle("OK")
             alertView.show()
-        } else if (user_phone_number != "" && !user_phone_number.isValidPhoneNumber()) {
-            let alertView:UIAlertView = UIAlertView()
-            alertView.title = "Invalid phone number"
-            alertView.message = "Phone number must be 10 numeric digits without any special or alphabetical characters."
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
         } else {
-            let usertable = self.client!.tableWithName("users")
-            let new_user = ["first": user_first_name,
-                            "last": user_last_name,
-                            "email": user_email,
-                            "password": hashed_user_pass,
-                            "phone_number": user_phone_number,
-                            "address": user_address,
-                            "profile": "cook"]
+            // create post data string
+            let post:NSString = "first_name=\(user_first_name)&last_name=\(user_last_name)&email=\(user_email)&password=\(user_password)&cook=True"
+            NSLog("PostData: %@",post);
             
-            // check if email is in data base
-            let userCheckPredicate = NSPredicate(format: "email == %@", user_email)
-            usertable!.readWithPredicate(userCheckPredicate, completion: {
-                (results, error) in
-                if (error != nil)  {
-                    NSLog(String(format: "%@", error.debugDescription))
-                }
-                
-                if (results.items.count == 0) {
-                    usertable.insert(new_user) {
-                        (insertedItem, error) in
-                        if (error != nil) {
-                            print("Error" + error.description);
-                        } else {
-                            print("Item inserted, id: " + (insertedItem["id"] as! String))
-                            self.performSegueWithIdentifier("cook_signup", sender: nil)
-                            let alertView:UIAlertView = UIAlertView()
-                            alertView.title = "Welcome to anjoui!"
-                            alertView.message = "Congratulations! Your cook account was created successfully."
-                            alertView.delegate = self
-                            alertView.addButtonWithTitle("OK")
-                            alertView.show()
-                        }
+            // create connection URL
+            let url: NSURL = NSURL(string: "http://ec2-52-23-188-123.compute-1.amazonaws.com/anjoui/create.php")!
+            let postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
+            let postLength:NSString = String( postData.length )
+            
+            let request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "POST"
+            request.HTTPBody = postData
+            request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            
+            var response: NSURLResponse?
+            do {
+                let urlData: NSData? = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+                if ( urlData != nil ) {
+                    let res = response as! NSHTTPURLResponse!;
+                    NSLog("Response code: %ld", res.statusCode);
+                    
+                    let alertView:UIAlertView = UIAlertView()
+                    alertView.delegate = self
+                    alertView.addButtonWithTitle("OK")
+                    
+                    if (res.statusCode == 200) {
+                        self.performSegueWithIdentifier("cook_signup", sender: nil)
+                        alertView.title = "Welcome to anjoui!"
+                        alertView.message = "Congratulations! Your cook account was created successfully."
+                    } else if (res.statusCode == 500) {
+                        alertView.title = "Sign in Failed"
+                        alertView.message = "Connection Failure"
+                    } else if (res.statusCode == 409) {
+                        alertView.title = "Email already exists"
+                        alertView.message = "This email already exists. Please use another email or log in."
                     }
+                    alertView.show()
                 } else {
                     let alertView:UIAlertView = UIAlertView()
-                    alertView.title = "Email already exists"
-                    alertView.message = "This email already exists. Please use another email or log in."
+                    alertView.title = "Sign in Failed"
+                    alertView.message = "Connection Failure"
                     alertView.delegate = self
                     alertView.addButtonWithTitle("OK")
                     alertView.show()
                 }
-            })
+            } catch let error as NSError {
+                print(error)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.client = MSClient(
-            applicationURLString:"https://anjoui-test-ale.azure-mobile.net/",
-            applicationKey:"EVLaGLPcRrWygXxmjjpYFviRlsfUgE86"
-        )
         // Do any additional setup after loading the view.
         
         //Looks for single or multiple taps.
