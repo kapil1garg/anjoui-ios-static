@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class SignupDinerViewController: UIViewController {
     
     @IBOutlet weak var txtFirstName: UITextField!
