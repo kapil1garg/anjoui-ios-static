@@ -147,7 +147,7 @@ class EntreeListTableViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var entrees = self.tableView.dequeueReusableCellWithIdentifier("EntreeListTableViewCell") as! EntreeListTableViewCell
+        let entrees = self.tableView.dequeueReusableCellWithIdentifier("EntreeListTableViewCell") as! EntreeListTableViewCell
         //        print(entrees.dishPic)
 //        entrees.dishPic.image = UIImage(named:"dish.jpg")
 //        entrees.dishName?.text = "Lotus Root with Edemame"

@@ -7,7 +7,6 @@
 
 #ifndef anjoui_anjoui_Bridging_Header_h
 #define anjoui_anjoui_Bridging_Header_h
-#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 #import <CommonCrypto/CommonCrypto.h>
 
 

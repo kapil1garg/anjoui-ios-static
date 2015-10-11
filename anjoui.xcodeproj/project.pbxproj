@@ -77,7 +77,6 @@
 		009017061B69E0030019C0FB /* dish4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 009017031B69E0030019C0FB /* dish4.jpg */; };
 		009017071B69E0030019C0FB /* Profile_Photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 009017041B69E0030019C0FB /* Profile_Photo.jpg */; };
 		009017091B69E08F0019C0FB /* main-screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 009017081B69E08F0019C0FB /* main-screen.jpg */; };
-		0090170C1B69F45C0019C0FB /* WindowsAzureMobileServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0090170B1B69F45C0019C0FB /* WindowsAzureMobileServices.framework */; };
 		00EEEBCF1B6DEB1D00EDE4F7 /* EntreeListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEEBCD1B6DEB1D00EDE4F7 /* EntreeListTableViewCell.swift */; };
 		00EEEBD01B6DEB1D00EDE4F7 /* EntreeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EEEBCE1B6DEB1D00EDE4F7 /* EntreeListTableViewController.swift */; };
 		00F457701B6DDB57008E9AFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F4576F1B6DDB57008E9AFF /* LoginViewController.swift */; };
@@ -202,7 +201,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0090170C1B69F45C0019C0FB /* WindowsAzureMobileServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
