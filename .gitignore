@@ -200,3 +200,6 @@ DerivedData
 #
 #Pods/
 
+### Sublime Text ###
+# Sublime Text Project Files
+*.sublime-workspace
